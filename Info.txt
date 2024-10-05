@@ -1,6 +1,0 @@
-why browserRouter?
-browserRouter is SEO friendly and i can store the visited url in order.
-the can be implemented using hashRouter also but it uses a '#' in the urls to store the route detailes
-so instead we use browserRouter which i user friendly and provides a better experience 
-
-
