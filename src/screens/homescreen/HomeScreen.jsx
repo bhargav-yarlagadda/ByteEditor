@@ -4,7 +4,7 @@ import Landing from '../../components/Landing';
 
 const HomeScreen = () => {
   return (
-    <div className=" lg:grid lg:grid-cols-3 h-screen w-screen bg-gray-900 bg-opacity-95">
+    <div className=" lg:grid lg:grid-cols-3 h-screen w-screen bg-gray-900 bg-opacity-95 overflow-scroll" style={{scrollbarWidth:"none"}}>
       <div className="lg:col-span-1">
         <Hero />
       </div>
