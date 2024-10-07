@@ -1,10 +1,10 @@
 import React from 'react';
 import { FaPlus } from "react-icons/fa";
 import RightContainer from './RightContainer/RightContainer';
-const Landing = () => {
+
+const HeaderOfLanding = ()=>{
   return (
-    <div className=' flex-col justify-between items-center'>
-      <div className='p-4 w-full border-b-2 flex justify-between items-center'>
+    <div className='p-4 w-full border-b-2 flex justify-between items-center'>
         <div className='gap-3 flex text-white text-2xl'>
           <span>My</span>
           <span className='font-bold'>Playground</span>
@@ -14,7 +14,15 @@ const Landing = () => {
         <span>New folder</span>
       </button>
       </div>
+  )
+}
+
+const Landing = () => {
+  return (
+    <div className='overflow-scroll px-2 flex-col justify-between items-center max-h-screen' style={{scrollbarWidth:"none"}} >
+      <HeaderOfLanding/>
       <RightContainer/>
+
     </div>
   );
 };
