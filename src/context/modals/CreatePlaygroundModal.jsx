@@ -7,38 +7,44 @@ const CreatePlaygroundModal = () => {
   const { folders, setFolders } = useContext(PlaygroundContext);
   const { setModalType } = useContext(ModalContext);
 
-  //   states to handle user Input or we can just use a single state Object
-  const [newFolder, setNewFolder] = useState("");
-  const [newFile, setNewFile] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  // Consolidate form data into a single state object
+  const [formData, setFormData] = useState({
+    folderName: "",
+    fileName: "",
+    language: "",
+  });
 
   const [isVisible, setIsVisible] = useState(false); // Track visibility for animation
 
   useEffect(() => {
-    setIsVisible(true); // When modal opens, trigger animation
+    setIsVisible(true); // Trigger fade-in animation on mount
   }, []);
 
-  const handleCreate = () => {
-    if (!newFolder || !newFile || !selectedLanguage) {
+  const handleCreate = (e) => {
+    e.preventDefault(); // Prevent form from reloading the page
+
+    const { folderName, fileName, language } = formData;
+
+    // Validate form fields
+    if (!folderName || !fileName || !language) {
       alert("Please fill in all fields");
       return;
     }
 
     const newFolderData = {
       id: v4(),
-      title: newFolder,
+      title: folderName,
       files: [
         {
           id: v4(),
-          title: newFile,
-          language: selectedLanguage,
+          title: fileName,
+          language,
           code: "",
         },
       ],
     };
 
     setFolders([...folders, newFolderData]);
-
     handleClose(); // Close modal after creating
   };
 
@@ -49,6 +55,92 @@ const CreatePlaygroundModal = () => {
     }, 300); // Match this delay with the duration of the animation
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,                           
+      [name]: value,
+    }));
+  };
+
+  const HandleModalSubmit = () => {
+    return (
+      <form onSubmit={handleCreate}>
+        {/* Folder Name */}      
+        <div className="flex flex-col mb-4">
+          <label htmlFor="folderName" className="mb-2">
+            Enter Folder Name:
+          </label>
+          <input
+            type="text"
+            id="folderName"
+            name="folderName"
+            value={formData.folderName}
+            onChange={handleInputChange}
+            placeholder="Enter folder name"
+            className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+
+        {/* File Name */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="fileName" className="mb-2">
+            Enter File Name:
+          </label>
+          <input
+            type="text"
+            id="fileName"
+            name="fileName"
+            value={formData.fileName}
+            onChange={handleInputChange}
+            placeholder="Enter file name"
+            className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+
+        {/* Language Selection */}
+        <div className="flex flex-col mb-4">
+          <label htmlFor="language" className="mb-2">
+            Select Programming Language:
+          </label>
+          <select
+            id="language"
+            name="language"
+            value={formData.language}
+            onChange={handleInputChange}
+            className="border border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          >
+            <option value="" disabled>
+              --Select Language--
+            </option>
+            <option value="cpp">C++</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+          </select>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex justify-between mt-6">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition duration-300"
+          >
+            Create
+          </button>
+          <button
+            type="button"
+            onClick={handleClose}
+            className="text-gray-100 bg-red-500 rounded-md p-2 hover:text-gray-800 transition duration-300"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    );
+  };
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70 backdrop-blur-md 
@@ -63,69 +155,11 @@ const CreatePlaygroundModal = () => {
         }`}
       >
         <h2 className="text-2xl font-bold mb-4">
-          Create New Playground and New Folder
+          Create New Playground and Folder
         </h2>
-        <div className="flex flex-col mb-4">
-          <label className="mb-2" htmlFor="folderName">
-            Enter Folder Name:
-          </label>
-          <input
-            type="text"
-            id="folderName"
-            required
-            onChange={(e) => setNewFolder(e.target.value)}
-            placeholder="Enter folder name"
-            value={newFolder}
-            className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div className="flex flex-col mb-4">
-          <label className="mb-2" htmlFor="fileName">
-            Enter File Name:
-          </label>
-          <input
-            type="text"
-            id="fileName"
-            required
-            onChange={(e) => setNewFile(e.target.value)}
-            placeholder="Enter file name"
-            value={newFile}
-            className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div className="flex flex-col mb-4">
-          <label htmlFor="languageSelect" className="mb-2">
-            Select Programming Language:
-          </label>
-          <select
-            required
-            id="languageSelect"
-            onChange={(e) => setSelectedLanguage(e.target.value)}
-            value={selectedLanguage}
-            className="border border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="" disabled={true}>
-              --Select Language--
-            </option>
-            <option value="cpp">C++</option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-          </select>
-        </div>
-        <div className="flex justify-between mt-6">
-          <button
-            onClick={handleCreate}
-            className="bg-blue-500 text-white rounded p-2 hover:bg-blue-600 transition duration-300"
-          >
-            Create
-          </button>
-          <button
-            onClick={handleClose}
-            className="text-gray-100 bg-red-500 rounded-md p-2 hover:text-gray-800 transition duration-300"
-          >
-            Cancel
-          </button>
-        </div>
+
+        {/* Form to handle inputs */}
+        <HandleModalSubmit />
       </div>
     </div>
   );
