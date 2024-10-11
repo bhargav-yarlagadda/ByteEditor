@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { v4 } from "uuid"; // Ensure to import v4 for unique ids
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { ModalContext } from "../ModalProvider";
-
+import {defaultSnippets} from '../../utils/playgroundUtil'
 const CreatePlaygroundModal = () => {
   const { folders, setFolders } = useContext(PlaygroundContext);
   const { setModalType } = useContext(ModalContext);
@@ -38,8 +38,8 @@ const CreatePlaygroundModal = () => {
         {
           id: v4(),
           title: fileName,
-          language,
-          code: "",
+          language:language,
+          code: defaultSnippets[language],
         },
       ],
     };

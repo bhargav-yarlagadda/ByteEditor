@@ -1,42 +1,5 @@
 import React, { useEffect, useState, createContext } from 'react';
-import { v4 } from 'uuid';
-
-const initialData = [
-    {
-        id: v4(),
-        title: "DSA",
-        files: [
-            {
-                id: v4(),
-                title: 'Introduction to CPP',
-                language: "cpp", 
-                code: `
-                #include <iostream> 
-                int main()
-                {
-                    std::cout << "Hello World";
-                    return 0;
-                }
-                `
-            }
-        ]
-    },
-    {
-        id: v4(),
-        title: "Front End",
-        files: [
-            {
-                id: v4(),
-                title: 'Introduction to JS',
-                language: "javascript", 
-                code: `
-                console.log("Hello World");
-                `
-            }
-        ]
-    }
-];
-
+import { initialData } from '../utils/playgroundUtil';
 // Create context
 export const PlaygroundContext = createContext();
 

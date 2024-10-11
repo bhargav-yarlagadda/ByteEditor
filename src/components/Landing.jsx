@@ -14,7 +14,7 @@ const HeaderOfLanding = ()=>{
         </div>
       <button onClick={
       ()=>{
-        setModalType('create-playground')
+        setModalType('create-folder')
       }} className='flex items-center w-1/4 gap-2 px-4 py-2 hover:bg-black hover:text-white transition-all ease-in duration-900 bg-white rounded-full'>
         <FaPlus />
         <span>New folder</span>
