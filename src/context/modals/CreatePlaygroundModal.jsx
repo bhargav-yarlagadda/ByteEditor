@@ -7,6 +7,8 @@ const CreatePlaygroundModal = () => {
   const { folders, setFolders } = useContext(PlaygroundContext);
   const { setModalType } = useContext(ModalContext);
 
+
+
   // Consolidate form data into a single state object
   const [formData, setFormData] = useState({
     folderName: "",

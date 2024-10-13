@@ -10,6 +10,7 @@ const PlaygroundContextProvider = ({ children }) => {
         const storedData = localStorage.getItem("data");
         return storedData ? JSON.parse(storedData) : initialData;
     });
+
     
 
     // Save the folders data to localStorage whenever it changes
