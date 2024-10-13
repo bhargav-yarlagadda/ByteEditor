@@ -11,6 +11,11 @@ const PlaygroundContextProvider = ({ children }) => {
         return storedData ? JSON.parse(storedData) : initialData;
     });
 
+    const deleteFolder = (folderId)=>{
+        setFolders(folders.filter((folder) => folder.id !== folderId));
+      }
+
+
     
 
     // Save the folders data to localStorage whenever it changes
@@ -19,7 +24,7 @@ const PlaygroundContextProvider = ({ children }) => {
     }, [folders]);
 
     return (
-        <PlaygroundContext.Provider value={{ folders, setFolders }}>
+        <PlaygroundContext.Provider value={{ folders, setFolders,deleteFolder }}>
             {children}
         </PlaygroundContext.Provider>
     );
