@@ -12,14 +12,14 @@ An online code compiler and playground built with React and Vite, allowing users
 - **Save and manage playgrounds**: Ability to save multiple code playgrounds to the browser's local storage.
 - **Fullscreen Support**: Users can toggle fullscreen mode for a more focused coding environment.
 - **Upload/Download Code**: Allows users to upload code files into the editor and download code from the editor.
-- **Responsive Layout**: Uses `Styled Components` to create a flexible and responsive layout.
+- **Responsive Layout**: Uses `Tailwind CSS` for a flexible, mobile-friendly layout and customizable styles.
 
 ## Technologies Used
 
 - **React JS**: Frontend framework for building the user interface.
 - **Vite**: Fast development build tool for React projects.
 - **CodeMirror**: Code editor for syntax highlighting, language modes, and themes.
-- **Styled Components**: For writing CSS-in-JS, making the UI modular and maintainable.
+- **Tailwind CSS**: Utility-first CSS framework for building responsive and modern UI.
 - **Judge0 CE API**: Executes and compiles code in different languages via Rapid API.
 - **Axios**: For making API requests to the Judge0 CE API.
 - **React Router**: For routing between different views in the application.
