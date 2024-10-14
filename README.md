@@ -1,8 +1,53 @@
-# React + Vite
+# Online Code Compiler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online code compiler and playground built with React and Vite, allowing users to write, execute, and manage multiple code snippets. This project supports multiple programming languages, themes, and features for uploading/downloading code, saving playgrounds locally, and managing input/output files.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Code Editor**: Built using the `CodeMirror` package, providing a rich and customizable code editing experience.
+- **Multi-language support**: Supports C++, Python, Java, JavaScript.
+- **Multi-theme support**: Users can switch between different editor themes for better readability and user preference.
+- **Judge0 CE API Integration**: Uses the Judge0 CE API via Rapid API to execute and compile code in various languages.
+- **Input/Output console**: Provides functionality to upload input text files and download the output after execution.
+- **Save and manage playgrounds**: Ability to save multiple code playgrounds to the browser's local storage.
+- **Fullscreen Support**: Users can toggle fullscreen mode for a more focused coding environment.
+- **Upload/Download Code**: Allows users to upload code files into the editor and download code from the editor.
+- **Responsive Layout**: Uses `Tailwind CSS` for a flexible, mobile-friendly layout and customizable styles.
+
+## Technologies Used
+
+- **React JS**: Frontend framework for building the user interface.
+- **Vite**: Fast development build tool for React projects.
+- **CodeMirror**: Code editor for syntax highlighting, language modes, and themes.
+- **Tailwind CSS**: Utility-first CSS framework for building responsive and modern UI.
+- **Judge0 CE API**: Executes and compiles code in different languages via Rapid API.
+- **Axios**: For making API requests to the Judge0 CE API.
+- **React Router**: For routing between different views in the application.
+- **Local Storage**: To persist code playgrounds across sessions.
+
+## Getting Started
+
+### Prerequisites
+
+To run this project locally, you'll need:
+
+- Node.js (v14 or above)
+- npm or yarn (for installing dependencies)
+- Access to the Judge0 CE API through Rapid API
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bhargav-yarlagadda/ByteEditor.git
+   cd online-code-compiler
+   ```
+2. run install the deps
+   ```bash
+     npm install
+   ```
+3. run the App
+   ```bash
+     npm run dev
+   ``` 
+  
