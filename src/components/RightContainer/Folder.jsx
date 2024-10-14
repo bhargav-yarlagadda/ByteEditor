@@ -101,6 +101,8 @@ export const Folder = ({ folder }) => {
       >
         {folder.files?.map((file) => (
           <PlaygroundCard
+            folderId = {folder.id}
+            fileId = {file.id}
             key={file.id}
             title={file.title}
             language={file.language}

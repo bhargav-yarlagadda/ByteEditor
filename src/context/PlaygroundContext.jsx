@@ -14,6 +14,14 @@ const PlaygroundContextProvider = ({ children }) => {
     const deleteFolder = (folderId)=>{
         setFolders(folders.filter((folder) => folder.id !== folderId));
       }
+      const updateFolderName = (folderId, newFolderName) => {
+        setFolders(
+          folders.map((f) =>
+            f.id === folderId ? { ...f, title: newFolderName } : f
+          )
+        );
+      };
+    
 
 
     
@@ -24,7 +32,7 @@ const PlaygroundContextProvider = ({ children }) => {
     }, [folders]);
 
     return (
-        <PlaygroundContext.Provider value={{ folders, setFolders,deleteFolder }}>
+        <PlaygroundContext.Provider value={{ folders, setFolders,deleteFolder ,updateFolderName}}>
             {children}
         </PlaygroundContext.Provider>
     );
