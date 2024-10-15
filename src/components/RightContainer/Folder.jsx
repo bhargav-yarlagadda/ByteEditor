@@ -57,23 +57,26 @@ const EditModal = ({ setIsEditing, folderId, updateFolderName }) => {
 const AddnewPlayGround = ({setAddNewGround,folderId})=>{
   const {setFolders,folders} = useContext(PlaygroundContext)
   const [playgroundName,setplaygroundName] = useState('')
-  const [playgroundLang,setPlaygroundLang]=useState(null)
-  const submitNewPlayground = ()=>{
+  const [playgroundLang,setPlaygroundLang]=useState('')
+  const submitNewPlayground = () => {
     const newFile = {
-      id:v4(),
-      title:playgroundName,
-      language:playgroundLang,
-      code:defaultSnippets[playgroundLang]
-    }
-    const UpdatedFolders = folders.map((folder)=>{
-        if(folderId === folder.id){
-          return {...folder, files : [folder.files,newFile] }
-        }
-        return folder
-    })
-    setFolders(UpdatedFolders)
-    setAddNewGround(false)
-  }
+      id: v4(),
+      title: playgroundName,
+      language: playgroundLang,
+      code: defaultSnippets[playgroundLang]
+    };
+  
+    const UpdatedFolders = folders.map((folder) => {
+      if (folderId === folder.id) {
+        return { ...folder, files: [...folder.files, newFile] }; // Correctly append the new file
+      }
+      return folder;
+    });
+  
+    setFolders(UpdatedFolders);
+    setAddNewGround(false);
+  };
+  
   return (
     <div className="w-screen h-screen absolute flex justify-center items-center inset-0 bg-gray-900 bg-opacity-50 backdrop-blur-md px-4 py-2">
       <div className="w-full max-w-lg bg-gray-400 bg-opacity-80 rounded-lg shadow-lg p-6 space-y-4">
@@ -101,7 +104,7 @@ const AddnewPlayGround = ({setAddNewGround,folderId})=>{
               className="border border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             >
-              <option value="" disabled>
+              <option value="" >
                 --Select Language--
               </option>
               <option value="cpp">C++</option>
