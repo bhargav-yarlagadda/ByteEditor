@@ -5,6 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { v4 } from "uuid";
+import { defaultSnippets } from "../../utils/playgroundUtil";
 const EditModal = ({ setIsEditing, folderId, updateFolderName }) => {
   const [newFolderName, setNewFolderName] = useState("");
 
@@ -61,7 +62,8 @@ const AddnewPlayGround = ({setAddNewGround,folderId})=>{
     const newFile = {
       id:v4(),
       title:playgroundName,
-      language:playgroundLang
+      language:playgroundLang,
+      code:defaultSnippets[playgroundLang]
     }
     const UpdatedFolders = folders.map((folder)=>{
         if(folderId === folder.id){
