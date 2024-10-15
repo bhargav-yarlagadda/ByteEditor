@@ -2,13 +2,13 @@ import { useState, useContext } from "react";
 import Logo from "../../assets/logo-grayscale.svg";
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteOutline } from "react-icons/md";
+import { CiSaveDown1 } from "react-icons/ci";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 
-
-// PlaygroundCard component
 export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   const { setFolders, folders } = useContext(PlaygroundContext);
- 
+  const [isEditing, setIsEditing] = useState(false);
+  const [newTitle, setNewTitle] = useState(title);
 
   const onDelete = (folderId, fileId) => {
     const updatedFolders = folders.map((folder) => {
@@ -22,31 +22,59 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   };
 
   const onSaveEdit = () => {
-
+    const updatedFolders = folders.map((folder) => {
+      if (folder.id === folderId) {
+        const updatedFiles = folder.files.map((file) => {
+          if (file.id === fileId) {
+            return { ...file, title: newTitle };
+          }
+          return file;
+        });
+        return { ...folder, files: updatedFiles };
+      }
+      return folder;
+    });
+    setFolders(updatedFolders);
+    setIsEditing(false);
   };
 
   return (
-    <div className="flex max-w-[40%] gap-2 min-w-[300px] hover:shadow-sm hover:shadow-white justify-between px-1 rounded-lg bg-black hover:scale-[1.03] transition-all ease-in-out duration-200">
-
-
-      <img src={Logo} alt={`${title} logo`} className="w-20 h-20" />
-      <div className="flex flex-col text-white items-start justify-center">
-        <span>{title}</span>
-        <span>Language: {language}</span>
+    <div className="flex max-w-[45%] py-4 px-3 min-w-[350px] bg-gray-900 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
+      
+      <img src={Logo} alt={`${title} logo`} className="w-16 h-16 rounded-full border-2 border-gray-600" />
+      
+      <div className="flex flex-col text-white items-start justify-center flex-grow ml-4">
+        {isEditing ? (
+          <input
+            className="bg-gray-800 text-white w-full px-3 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-400"
+            type="text"
+            value={newTitle}
+            onChange={(e) => setNewTitle(e.target.value)}
+          />
+        ) : (
+          <span className="font-semibold text-lg">{title}</span>
+        )}
+        <span className="text-sm text-gray-400">Language: {language}</span>
       </div>
-      <div className="flex gap-2 items-center text-white text-4xl">
-        <button onClick={() => {}} aria-label="Edit Playground">
-          <CiEdit />
-        </button>
+      
+      <div className="flex gap-3 items-center text-white text-2xl">
+        {isEditing ? (
+          <button onClick={onSaveEdit} aria-label="Save Edit" className="hover:text-teal-400">
+            <CiSaveDown1 />
+          </button>
+        ) : (
+          <button onClick={() => setIsEditing(true)} aria-label="Edit Playground" className="hover:text-teal-400">
+            <CiEdit />
+          </button>
+        )}
         <button
           onClick={() => onDelete(folderId, fileId)}
           aria-label="Delete Playground"
+          className="hover:text-red-400"
         >
           <MdOutlineDeleteOutline />
         </button>
       </div>
-
-      {/* Modal for editing */}
     </div>
   );
 };
