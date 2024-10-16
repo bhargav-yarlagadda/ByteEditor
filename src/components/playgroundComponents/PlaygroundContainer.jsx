@@ -10,7 +10,7 @@ const PlaygroundContainer = ({children}) => {
           alt="Byte Folio Logo"
           className="rounded-full w-16 h-16 border-2 border-gray-100"
         />
-        <span className="text-2xl text-white font-semibold">Byte Folio</span>
+        <span className="text-2xl text-white font-semibold font-mono">Byte Editor</span>
       </div>
     {
         children
