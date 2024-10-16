@@ -26,7 +26,7 @@ const PlayGroundScreen = () => {
     // Pass folderId and fileId as props to PlaygroundProvider
     <PlaygroundProvider folderId={folderId} fileId={fileId}>
       <PlaygroundContainer>
-        <CodeLayout />
+        <CodeLayout/>
       </PlaygroundContainer>
     </PlaygroundProvider>
   );

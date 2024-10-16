@@ -44,12 +44,12 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
     navigate(`/playground/${folderId}/${fileId}`)
   }
   return (
-    <div onClick={onClickToNavigate}
+    <div 
     className="flex max-w-[45%] cursor-pointer py-4 px-3 min-w-[350px] bg-gray-900 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
       
       <img src={Logo} alt={`${title} logo`} className="w-16 h-16 rounded-full border-2 border-gray-600" />
       
-      <div className="flex flex-col text-white items-start justify-center flex-grow ml-4">
+      <div onClick={onClickToNavigate} className="flex flex-col text-white items-start justify-center flex-grow ml-4">
         {isEditing ? (
           <input
             className="bg-gray-800 text-white w-2/3 px-3 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-400"
