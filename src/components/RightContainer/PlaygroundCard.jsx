@@ -4,12 +4,13 @@ import { CiEdit } from "react-icons/ci";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { CiSaveDown1 } from "react-icons/ci";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
+import { useNavigate } from "react-router-dom";
 
 export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   const { setFolders, folders } = useContext(PlaygroundContext);
   const [isEditing, setIsEditing] = useState(false);
   const [newTitle, setNewTitle] = useState(title);
-
+  const navigate = useNavigate()
   const onDelete = (folderId, fileId) => {
     const updatedFolders = folders.map((folder) => {
       if (folder.id === folderId) {
@@ -37,9 +38,14 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
     setFolders(updatedFolders);
     setIsEditing(false);
   };
-
+  const onClickToNavigate = ()=>{
+    // navigate to next screen
+    // we use useNavigate fn of react router dom to navigate from homepage to palyground
+    navigate(`/playground/${folderId}/${fileId}`)
+  }
   return (
-    <div className="flex max-w-[45%] py-4 px-3 min-w-[350px] bg-gray-900 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
+    <div onClick={onClickToNavigate}
+    className="flex max-w-[45%] cursor-pointer py-4 px-3 min-w-[350px] bg-gray-900 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
       
       <img src={Logo} alt={`${title} logo`} className="w-16 h-16 rounded-full border-2 border-gray-600" />
       
