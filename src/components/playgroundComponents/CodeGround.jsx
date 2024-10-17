@@ -51,6 +51,7 @@ const CodeGround = () => {
           options={editorOptions}
           width={"100%"}
           height={"100%"}
+          defaultValue={currFile.code}
           theme={theme}
           language={currFile.language}
           onChange={onChangeCode}
