@@ -12,8 +12,9 @@ export const PlaygroundParamsContext = createContext();
 // Create a provider component that accepts folderId and fileId as props
 const PlaygroundProvider = ({ folderId, fileId, children }) => {
   const [theme,setTheme] = useState('vs-dark')
+  const [isFullScreen,setIsFullScreen] = useState(false)
   return (
-    <PlaygroundParamsContext.Provider value={{ folderId, fileId,theme,setTheme }}>
+    <PlaygroundParamsContext.Provider value={{ folderId, fileId,theme,setTheme,isFullScreen,setIsFullScreen }}>
       {children}
     </PlaygroundParamsContext.Provider>
   );

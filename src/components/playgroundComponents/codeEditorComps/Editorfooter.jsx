@@ -6,7 +6,7 @@ import { PlaygroundParamsContext } from "../../../screens/playgroundscreen/PlayG
 import { BsXLg } from "react-icons/bs";
 
 const Editorfooter = () => {
-  const { fileId, folderId } = useContext(PlaygroundParamsContext);
+  const { fileId, folderId,isFullScreen,setIsFullScreen  } = useContext(PlaygroundParamsContext);
   const { folders,setFolders } = useContext(PlaygroundContext);
 
 
@@ -76,10 +76,13 @@ const Editorfooter = () => {
   };
   
   return (
-    <div className="w-full h-[7.5%] bg-gray-800 bg-opacity-90 flex justify-around items-center px-6 py-2 shadow-lg">
-      <button className="flex items-center space-x-2 text-gray-200 hover:text-red-300 rounded-lg py-1 px-2 hover:bg-gray-300 hover:bg-opacity-20 cursor-pointer transition duration-300 ease-in-out">
+    <div className="w-full relative h-[7.5%] bg-gray-800 bg-opacity-90 flex justify-around items-center px-6 py-2 shadow-lg">
+      <button
+      
+      onClick={()=>{setIsFullScreen(true)}}
+      className="flex items-center space-x-2 text-gray-200 hover:text-red-300 rounded-lg py-1 px-2 hover:bg-gray-300 hover:bg-opacity-20 cursor-pointer transition duration-300 ease-in-out">
         <MdFullscreen className="text-xl" />
-        <span className="font-medium">Full Screen</span>
+        <span className="font-semibold">Full Screen</span>
       </button>
 
       {/* Import Code Button */}

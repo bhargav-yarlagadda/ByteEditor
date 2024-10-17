@@ -4,9 +4,10 @@ import { Editor } from "@monaco-editor/react";
 import { useContext, useEffect, useState } from "react";
 import { PlaygroundParamsContext } from "../../screens/playgroundscreen/PlayGroundScreen";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
+import { TiArrowMinimise } from "react-icons/ti";
 
 const CodeGround = () => {
-  const { fileId, folderId, theme } = useContext(PlaygroundParamsContext);
+  const { fileId, folderId, theme,isFullScreen,setIsFullScreen } = useContext(PlaygroundParamsContext);
   const { folders, setFolders } = useContext(PlaygroundContext);
 
   const editorOptions = {
@@ -47,13 +48,17 @@ const CodeGround = () => {
     setCode(currFile?.code || "");
   }, [currFile]);
 
+  const fullScreen = `absolute h-[100vh] w-[100vw]  top-0 z-10`
+  const defaultScreen = `h-[85%] w-full`
   return (
     <div className="h-screen w-full">
       <EditorNav />
       <div
-        className="h-[85%] w-full bg-gray-700 overflow-y-scroll"
+        className={`${isFullScreen ? fullScreen:defaultScreen} bg-gray-700 overflow-y-scroll`}
         style={{ scrollbarWidth: "none" }}
       >
+
+
         <Editor
           options={editorOptions}
           width={"100%"}
@@ -63,10 +68,32 @@ const CodeGround = () => {
           language={currFile.language}
           onChange={onChangeCode}
         />
+
+        {
+          isFullScreen && (
+            <ExitFullScreen/>
+          )
+        }
       </div>
       <Editorfooter />
     </div>
   );
 };
+
+const ExitFullScreen = () => {
+  const { setIsFullScreen } = useContext(PlaygroundParamsContext);
+  return (
+    <div
+      onClick={() => {
+        setIsFullScreen(false);
+      }}
+      className="flex z-50 absolute top-4 right-3.5 w-[150px] bg-gray-950 cursor-pointer bg-opacity-55 hover:bg-opacity-85 py-2 justify-center items-center rounded-md h-8 text-white"
+    >
+      <TiArrowMinimise />
+      <span>Exit full screen</span>
+    </div>
+  );
+};
+
 
 export default CodeGround;
