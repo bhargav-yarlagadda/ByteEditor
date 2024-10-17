@@ -53,7 +53,21 @@ const EditorNav = () => {
       setFolders(updatedFolders);
     }
   };
+  const handleClearCode = ()=>{
+    const updatedFolders = folders.map(folder => {
+      if (folder.id === folderId) {
+        return {
+          ...folder,
+          files: folder.files.map(file =>
+            file.id === fileId ? { ...file, code: '' } : file
+          )
+        };
+      }
+      return folder;
+    });
+    setFolders(updatedFolders);
 
+  }
   // Handle theme change
   const handleThemeChange = (e) => {
     console.log(e.target.value)
@@ -96,8 +110,10 @@ const EditorNav = () => {
         )}
         </div>
       
-        <button className='bg-blue-900 bg-opacity-75 hover:bg-opacity-95  text-white rounded-md py-1 md:px-2  text-sm min-w-[80px] md:text-md ' >
-          Save Code
+        <button
+        onClick={handleClearCode}
+        className='bg-blue-900 bg-opacity-75 hover:bg-opacity-95  text-white rounded-md py-1 md:px-2  text-sm min-w-[80px] md:text-md ' >
+          clear code
         </button>
       </div>  
       
