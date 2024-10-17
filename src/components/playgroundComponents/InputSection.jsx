@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CiImport } from "react-icons/ci";
 const InputSection = () => {
+
+
   return (
     <div className="h-1/2  min-h-[30vh] w-full mx-1 md:mx-0  " >
       <div className="flex h-[15%] justify-between items-center p-2 mx-auto w-full bg-gray-300">

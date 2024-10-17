@@ -1,8 +1,7 @@
 import CodeGround from "./CodeGround";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
-import { useContext } from "react";
-import { PlaygroundParamsContext } from "../../screens/playgroundscreen/PlayGroundScreen";
+
 
 const CodeLayout = () => {
   

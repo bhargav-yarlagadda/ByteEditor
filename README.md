@@ -18,6 +18,8 @@ An online code compiler and playground built with React and Vite, allowing users
 
 - **React JS**: Frontend framework for building the user interface.
 - **Vite**: Fast development build tool for React projects.
+- **Monaco Editor**: Editor Library for Implementing Editor.
+
 - **CodeMirror**: Code editor for syntax highlighting, language modes, and themes.
 - **Tailwind CSS**: Utility-first CSS framework for building responsive and modern UI.
 - **Judge0 CE API**: Executes and compiles code in different languages via Rapid API.

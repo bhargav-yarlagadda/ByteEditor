@@ -4,7 +4,7 @@ import { PlaygroundParamsContext } from '../../../screens/playgroundscreen/PlayG
 import { PlaygroundContext } from '../../../context/PlaygroundContext';
 
 const EditorNav = () => {
-  const { fileId, folderId } = useContext(PlaygroundParamsContext);
+  const { fileId, folderId, theme, setTheme } = useContext(PlaygroundParamsContext);
   const { folders, setFolders } = useContext(PlaygroundContext);
 
   const currFolder = folders.find(folder => folder.id === folderId);
@@ -12,8 +12,9 @@ const EditorNav = () => {
 
   const [newFileName, setNewFileName] = useState(currFile?.title || '');
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(currFile?.language || ''); // New state for language
+  const [selectedLanguage, setSelectedLanguage] = useState(currFile?.language || ''); // State for language
 
+  // Handle filename editing
   const editFileName = () => {
     if (currFile && currFolder) {
       const updatedFolders = folders.map(folder => {
@@ -32,11 +33,11 @@ const EditorNav = () => {
     }
   };
 
+  // Handle language change
   const handleLanguageChange = (e) => {
     const newLanguage = e.target.value;
     setSelectedLanguage(newLanguage);
 
-    // Update the file's language in the state
     if (currFile && currFolder) {
       const updatedFolders = folders.map(folder => {
         if (folder.id === folderId) {
@@ -53,11 +54,18 @@ const EditorNav = () => {
     }
   };
 
+  // Handle theme change
+  const handleThemeChange = (e) => {
+    console.log(e.target.value)
+    setTheme(e.target.value);
+  };
+
   return (
-    <div className='flex items-center justify-between px-4 h-[7.5%] bg-gray-100 border-b border-gray-300'>
-      <div className='flex items-center space-x-2 text-lg font-semibold text-gray-700'>
+    <div className='flex items-center justify-between px-4 h-[7.5%] bg-gray-950 border-b border-gray-300'>
+      <div className='flex gap-10 items-center space-x-2 text-lg font-semibold text-gray-700'>
+        <div>
         {isEditing ? (
-          <>
+          <div className='flex gap-3'>
             <input
               type="text"
               className='border p-2 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md transition duration-200'
@@ -76,21 +84,25 @@ const EditorNav = () => {
             >
               Cancel
             </button>
-          </>
+          </div>
         ) : (
-          <>
-            <span>{currFile?.title}</span>
+          <div className='flex gap-3 justify-center items-center' >
+            <span className='text-white' >{currFile?.title}</span>
             <CiEdit
-              className="text-xl text-gray-500 cursor-pointer hover:text-gray-700 transition duration-200"
+              className="text-xl text-white cursor-pointer hover:text-gray-700 transition duration-200"
               onClick={() => setIsEditing(true)} // Enter editing mode
             />
-          </>
+          </div>
         )}
-        <button className='bg-blue-900 bg-opacity-75 hover:bg-opacity-95 text-wrap text-white rounded-md py-1 px-3' >
+        </div>
+      
+        <button className='bg-blue-900 bg-opacity-75 hover:bg-opacity-95  text-white rounded-md py-1 md:px-2  text-sm min-w-[80px] md:text-md ' >
           Save Code
         </button>
-      </div>
-      <div>
+      </div>  
+      
+      <div className='flex space-x-4'>
+        {/* Language Dropdown */}
         <select
           id="language"
           name="language"
@@ -105,6 +117,24 @@ const EditorNav = () => {
           <option value="cpp">C++</option>
           <option value="javascript">JavaScript</option>
           <option value="python">Python</option>
+        </select>
+
+        {/* Theme Dropdown */}
+        <select
+          id="theme"
+          name="theme"
+          className="border border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={theme} // Bind selected theme to state
+          onChange={handleThemeChange} // Handle theme change
+          required
+        >
+          <option value="" disabled>
+            --Select Theme--
+          </option>
+          <option value="vs-light">vs-Light</option>
+          <option value="vs-dark">vs-Dark</option>
+          <option value="hc-black">HC black</option>
+
         </select>
       </div>
     </div>
