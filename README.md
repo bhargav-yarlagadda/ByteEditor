@@ -12,7 +12,7 @@ An online code compiler and playground built with React and Vite, allowing users
 - **Save and manage playgrounds**: Ability to save multiple code playgrounds to the browser's local storage.
 - **Fullscreen Support**: Users can toggle fullscreen mode for a more focused coding environment.
 - **Upload/Download Code**: Allows users to upload code files into the editor and download code from the editor.
-- **Responsive Layout**: Uses `Tailwind CSS` for a flexible, mobile-friendly layout and customizable styles.
+- **Responsive Layout**: Uses `Tailwind CSS` for a flexible, desktop-friendly layout and customizable styles.
 
 ## Technologies Used
 
