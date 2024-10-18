@@ -43,7 +43,7 @@ const OutputSection = () => {
       {/* Output Textarea */}
       <div className="mx-auto h-[85%] w-full flex-1 overflow-y-scroll" style={{ scrollbarWidth: 'none' }}>
         <textarea
-          className="h-full w-full p-2 rounded-md bg-gray-100 font-sans font-light text-sm text-gray-600 focus:outline-none resize-none"
+          className="h-full w-full p-2 rounded-md bg-gray-100 font-sans font-medium text-sm text-gray-600 focus:outline-none resize-none"
           value={outputCode || "No output,Run a Script to generate output"}
           readOnly
         />

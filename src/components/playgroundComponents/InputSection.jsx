@@ -41,10 +41,7 @@ const importInput = (e) => {
             Upload File
           </label>
 
-          {/* Submit Button */}
-          <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 px-3 py-1 md:py-2 rounded-md text-sm text-black font-medium flex items-center">
-            Submit
-          </button>
+
         </div>
       </div>
 
@@ -54,7 +51,9 @@ const importInput = (e) => {
           className="h-full w-full p-1 rounded-md bg-gray-100 font-sans font-light focus:outline-none resize-none"
           placeholder="Enter your input here..."
           value={inputCode}
-          onChange={(e) => setInputCode(e.target.value)}
+          onChange={(e) =>{ setInputCode(e.target.value)
+          
+          }}
         />
       </div>
     </div>

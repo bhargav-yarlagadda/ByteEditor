@@ -21,7 +21,7 @@ const CodeGround = () => {
 
   // State to hold current code
   const [code, setCode] = useState(currFile?.code || "");
-
+  
   const onChangeCode = (newCode) => {
     const updatedFolders = folders.map((folder) => {
       if (folder.id === folderId) {

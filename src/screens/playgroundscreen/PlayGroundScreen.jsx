@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { createContext } from "react";
 
 // Create a Context for folderId and fileId
-export const PlaygroundParamsContext = createContext();
 
 const InvalidID = ({ fileId, folderId }) => {
   const navigator = useNavigate();
@@ -31,7 +30,7 @@ const InvalidID = ({ fileId, folderId }) => {
             }, 200);
           }}
           className="bg-blue-600 text-white px-6 py-2 rounded-md shadow-md hover:bg-blue-800 transition-colors duration-300"
-        >
+          >
           Return Home
         </button>
       </div>
@@ -40,13 +39,16 @@ const InvalidID = ({ fileId, folderId }) => {
 };
 
 // Create a provider component that accepts folderId and fileId as props
+export const PlaygroundParamsContext = createContext();
+
+
 const PlaygroundProvider = ({ folderId, fileId, children }) => {
   const [theme, setTheme] = useState("vs-dark");
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [inputCode, setInputCode] = useState("");
   const [outputCode, setOutputCode] = useState("");
-
-  const { folders, setFolders } = useContext(PlaygroundContext);
+  const [showLoader,setShowLoader] = useState(false)
+ const { folders, setFolders } = useContext(PlaygroundContext);
   const currFolder = folders?.find((folder) => folder.id === folderId);
   if (!currFolder) {
     return <InvalidID fileId={fileId} folderId={folderId} />;
@@ -64,10 +66,12 @@ const PlaygroundProvider = ({ folderId, fileId, children }) => {
         setTheme,
         isFullScreen,
         setIsFullScreen,
-        inputCode,
+        inputCode, 
         setInputCode,
         outputCode,
         setOutputCode,
+        showLoader,
+        setShowLoader
       }}
     >
       {children}
