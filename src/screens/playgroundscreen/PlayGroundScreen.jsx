@@ -13,8 +13,11 @@ export const PlaygroundParamsContext = createContext();
 const PlaygroundProvider = ({ folderId, fileId, children }) => {
   const [theme,setTheme] = useState('vs-dark')
   const [isFullScreen,setIsFullScreen] = useState(false)
+  const [inputCode,setInputCode]= useState('')
+  const [outputCode,setOutputCode]= useState('')
+
   return (
-    <PlaygroundParamsContext.Provider value={{ folderId, fileId,theme,setTheme,isFullScreen,setIsFullScreen }}>
+    <PlaygroundParamsContext.Provider value={{ folderId, fileId,theme,setTheme,isFullScreen,setIsFullScreen,inputCode,setInputCode,outputCode,setOutputCode }}>
       {children}
     </PlaygroundParamsContext.Provider>
   );

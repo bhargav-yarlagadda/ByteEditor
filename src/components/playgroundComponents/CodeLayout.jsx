@@ -7,11 +7,11 @@ const CodeLayout = () => {
   
 
   return (
-    <div className="grid md:grid-cols-4  min-h-screen">
+    <div className="grid lg:grid-cols-4  min-h-screen">
       <div className="md:col-span-3  ">
         <CodeGround />
       </div>
-      <div className="flex flex-row  md:flex-col ">
+      <div className="flex flex-row w-screen lg:w-auto  lg:flex-col ">
         <InputSection />
         <OutputSection />
       </div>
