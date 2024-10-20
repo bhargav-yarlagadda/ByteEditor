@@ -77,25 +77,26 @@ const Editorfooter = () => {
   };
 
 
-const callBackFuntion = ({apiStatus,data,message})=>{
-  if(apiStatus==='loading'){
-    
-    setShowLoader(true)
-  }else if(apiStatus === 'error'){
-    setShowLoader(false)
-    setOutputCode('something went wrong on our side,please try after some tie')
-  }else{
-    setShowLoader(false)
-
-    if(data.status.id === 3){
-      setOutputCode(atob(data.stdout))
-    }else{
-      setOutputCode(atob(data.stderr))
-    }
-  }
+  const callBackFuntion = ({ apiStatus, data, message }) => {
+    if (apiStatus === 'loading') {
+      setShowLoader(true);
+    } else if (apiStatus === 'error') {
+      setShowLoader(false);
+      setOutputCode('Something went wrong on our side, please try again later.');
+    } else {
+      setShowLoader(false);
   
-}
-
+      if (data.status.id === 3) {
+        setOutputCode(atob(data.stdout)); // Successful execution
+      } else if (data.status.id === 6 || data.status.id === 5) { // For error cases
+        const errorOutput = atob(data.stderr || data.compile_output);
+        setOutputCode(`An error occurred:\n${errorOutput}`);
+      } else {
+        setOutputCode('Unexpected response from server.');
+      }
+    }
+  };
+  
 const onRunCode = useCallback(() => {
   const currFolder = folders?.find((folder) => folder.id === folderId);
   const currFile = currFolder?.files?.find((file) => file.id === fileId);
