@@ -1,4 +1,4 @@
-# Online Code Compiler
+# What is Byte Editor
 
 Byte Editor is an online code compiler and playground built with React and Vite, allowing users to write, execute, and manage multiple code snippets across different programming languages. 
 This project supports various features for an efficient coding experience, including uploading/downloading code, saving playgrounds locally, and managing input/output files.
