@@ -13,10 +13,13 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
-            <Route path="*" element={<NotFound/>} />
-            <Route path="/playground" element={<NotFound/>} />
-            
-            <Route path="/playground/:folderId/:fileId" element={<PlayGroundScreen />} />
+            <Route
+              path="/playground/:folderId/:fileId"
+              element={<PlayGroundScreen />}
+            />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/playground" element={<NotFound />} />
+
             {/* Wildcard route for 404 */}
           </Routes>
         </BrowserRouter>
