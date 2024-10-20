@@ -87,9 +87,9 @@ const ExitFullScreen = () => {
       onClick={() => {
         setIsFullScreen(false);
       }}
-      className="flex z-50 absolute top-4 right-3.5 w-[150px] bg-gray-950 cursor-pointer bg-opacity-55 hover:bg-opacity-85 py-2 justify-center items-center rounded-md h-8 text-white"
+      className="flex z-50 absolute bg-stone-500 top-4 right-3.5 w-[150px] gap-2 cursor-pointer hover:bg-red-950 py-2 justify-center items-center rounded-md h-8 text-white"
     >
-      <TiArrowMinimise />
+      <TiArrowMinimise className="w-6 h-6" />
       <span>Exit full screen</span>
     </div>
   );
