@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { PlaygroundContext } from '../../context/PlaygroundContext';  // Fix: named import
 import { Folder } from './Folder';
 
-const RightContainer = () => {
+const LandingPage = () => {
   const { folders } = useContext(PlaygroundContext); 
   return (
       <div className='overflow-scroll' style={{ scrollbarWidth: "none" }}>
@@ -14,4 +14,4 @@ const RightContainer = () => {
     );
 
 };
-export default RightContainer;
+export default LandingPage;

@@ -1,7 +1,8 @@
 import React,{useContext} from 'react';
 import { FaPlus } from "react-icons/fa";
-import RightContainer from './RightContainer/RightContainer';
+
 import {ModalContext} from '../context/ModalProvider'
+import LandingPage from './RightContainer/RightContainer';
 
 const HeaderOfLanding = ()=>{
   const {modalType,setModalType} = useContext(ModalContext)
@@ -27,8 +28,7 @@ const Landing = () => {
   return (
     <div className='overflow-scroll bg-gray-900 px-2 flex-col justify-between items-center h-screen' style={{scrollbarWidth:"none"}} >
       <HeaderOfLanding/>
-      <RightContainer/>
-
+      <LandingPage/>
     </div>
   );
 };
