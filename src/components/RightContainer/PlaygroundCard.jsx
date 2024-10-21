@@ -45,7 +45,7 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   }
   return (
     <div 
-    className="flex max-w-[45%] cursor-pointer py-4 px-3 min-w-[350px] bg-gray-900 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
+    className="flex max-w-[45%] cursor-pointer py-4 px-3 min-w-[350px] bg-gray-700 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out">
       
       <img src={Logo} alt={`${title} logo`} className="w-16 h-16 rounded-full border-2 border-gray-600" />
       

@@ -18,7 +18,7 @@ const PlaygroundContainer = ({ children }) => {
   const navigate = useNavigate(); // Get the navigate function
 
   const navigateToHome = () => {
-    navigate("/"); // Use navigate to go to the homepage (assuming the route is "/")
+    navigate("/playground"); // Use navigate to go to the homepage (assuming the route is "/")
   };
   const [isHovered, setIsHovered] = useState(false);
   return (

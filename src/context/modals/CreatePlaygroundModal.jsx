@@ -3,11 +3,11 @@ import { v4 } from "uuid"; // Ensure to import v4 for unique ids
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { ModalContext } from "../ModalProvider";
 import { defaultSnippets } from '../../utils/playgroundUtil';
-
+import { useNavigate } from "react-router-dom";
 const CreatePlaygroundModal = () => {
   const { folders, setFolders } = useContext(PlaygroundContext);
   const { setModalType } = useContext(ModalContext);
-  
+  const navigator = useNavigate()
   // Consolidate form data into a single state object
   const [formData, setFormData] = useState({
     folderName: "",
@@ -47,6 +47,7 @@ const CreatePlaygroundModal = () => {
 
     setFolders([...folders, newFolderData]);
     handleClose(); // Close modal after creating
+    navigator('/playground')
   };
 
   const handleClose = () => {
