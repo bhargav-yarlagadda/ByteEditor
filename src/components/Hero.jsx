@@ -3,6 +3,7 @@ import { FaPlus } from "react-icons/fa";
 import Logo from "../assets/logo-grayscale.svg";
 import { ModalContext } from "../context/ModalProvider";
 import { useNavigate } from "react-router-dom";
+import { GrLinkNext } from "react-icons/gr";
 
 const Hero = () => {
   const navigator = useNavigate();
@@ -37,7 +38,7 @@ const Hero = () => {
             onClick={() => navigator("/playground")}
             className="bg-gradient-to-r from-gray-600 to-purple-900 px-10 py-4 text-white font-semibold rounded-full shadow-xl transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-2xl hover:from-gray-900 hover:to-black"
           >
-            <FaPlus className="inline-block mr-2" />
+            <GrLinkNext className="inline-block mr-2 " />
             My Playgrounds
           </button>
         </div>
