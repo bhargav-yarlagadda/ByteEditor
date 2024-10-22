@@ -11,7 +11,7 @@ const HeaderOfLanding = () => {
   const navigator = useNavigate();
 
   return (
-    <div className='p-4 w-full bg-gray-900 border-b-2 border-gray-700 flex justify-between items-center relative shadow-lg'>
+    <div className='p-4 w-full bg-gray-950 border-b-2 border-gray-700 flex justify-between items-center relative shadow-lg'>
       <div className='flex gap-3 items-center'>
         <div 
           className='flex items-center justify-center text-white text-2xl cursor-pointer transition-transform transform hover:scale-105'
@@ -51,7 +51,7 @@ const HeaderOfLanding = () => {
 
 const Landing = () => {
   return (
-    <div className='overflow-scroll bg-gray-900 px-2 flex-col justify-between items-center h-screen' style={{ scrollbarWidth: "none" }}>
+    <div className='overflow-scroll bg-gray-900  flex-col justify-between items-center h-screen' style={{ scrollbarWidth: "none" }}>
       <HeaderOfLanding />
       <LandingPage />
     </div>

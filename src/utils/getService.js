@@ -27,7 +27,7 @@ export async function makeSubmission({ code, language, callBack, stdin }) {
 
     let langId = 54; // Default to C++
     if (language === 'js' || language === 'javascript') {
-        langId = 91;
+        langId = 63;
     } else if (language === 'py' || language === 'python') {
         langId = 92;
     }
