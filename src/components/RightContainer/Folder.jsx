@@ -78,40 +78,47 @@ const AddNewPlayground = ({ setAddNewGround, folderId }) => {
   };
 
   return (
-    <div className="w-screen h-screen absolute flex justify-center items-center inset-0 bg-gray-900 bg-opacity-70 backdrop-blur-md px-4 py-2">
-      <div className="w-full max-w-lg bg-gray-100 bg-opacity-60 backdrop-blur-lg rounded-lg shadow-xl p-6 space-y-4">
-        <h2 className="text-xl font-semibold text-gray-800">Add New Playground</h2>
+    <div className="w-screen h-screen z-10 absolute flex justify-center items-center inset-0 bg-gradient-to-br bg-gray-100 backdrop-blur-md bg-opacity-10 px-6 py-4">
+      <div className="w-full max-w-lg bg-gray-900 bg-opacity-90 rounded-xl shadow-2xl p-8 space-y-6 transform transition-all hover:shadow-3xl duration-300">
+        <h2 className="text-2xl font-bold text-gray-200 mb-4 text-center tracking-wide">
+          Add New Playground
+        </h2>
         <input
           type="text"
           onChange={(e) => setPlaygroundName(e.target.value)}
           placeholder="Enter file name"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-500 bg-gray-900 text-gray-200 shadow-inner"
         />
-        <div className="flex flex-col mb-4">
-          <label htmlFor="language" className="mb-2 text-gray-700">Select Programming Language:</label>
+        <div className="flex flex-col mb-6">
+          <label
+            htmlFor="language"
+            className="mb-3 text-gray-300 text-lg font-medium tracking-wide"
+          >
+            Select Programming Language:
+          </label>
           <select
             id="language"
             name="language"
             onChange={(e) => setPlaygroundLang(e.target.value)}
-            className="border border-gray-300 bg-gray-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-700 rounded-md px-4 py-2  bg-gray-900 text-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ease-in-out"
             required
           >
-            <option value="">--Select Language--</option>
-            <option value="cpp">C++</option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
+            <option className='text-white  bg-blue-500 bg-opacity-20 ' value="">--Select Language--</option>
+            <option className='text-white  bg-blue-500 bg-opacity-20 ' value="cpp">C++</option>
+            <option className='text-white  bg-blue-500 bg-opacity-20 ' value="javascript">JavaScript</option>
+            <option className='text-white  bg-blue-500 bg-opacity-20 ' value="python">Python</option>
           </select>
         </div>
         <div className="flex justify-between space-x-4">
           <button
             onClick={submitNewPlayground}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+            className="flex-1 px-6 py-3 bg-blue-600 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
           >
             Save
           </button>
           <button
             onClick={() => setAddNewGround(false)}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+            className="flex-1 px-6 py-3 bg-red-500 text-gray-200 font-semibold rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-1"
           >
             Cancel
           </button>
@@ -119,6 +126,7 @@ const AddNewPlayground = ({ setAddNewGround, folderId }) => {
       </div>
     </div>
   );
+  
 };
 
 export const Folder = ({ folder }) => {
