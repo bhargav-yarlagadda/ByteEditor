@@ -5,13 +5,20 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { CiSaveDown1 } from "react-icons/ci";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { useNavigate } from "react-router-dom";
+import { IoInformation } from "react-icons/io5";
 
 const Info = () => (
-  <span className="absolute w-[265px] h-[90px] top-[50%] left-[100%]  transform -translate-y-1/2 bg-gray-100 bg-opacity-15 backdrop-blur-3xl p-4 rounded-md border border-blue-800 shadow-lg z-10 text-white text-base transition-opacity duration-300 flex flex-col justify-center items-center">
-    <span className="font-semibold text-lg">Click on the Icon</span>
-    <span className="text-sm mt-1">to navigate to the playground</span>
+  <span className="absolute w-[72%] h-full bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-lg border border-gray-700 shadow-lg z-10 text-white text-base transition-transform duration-300 flex flex-col justify-center items-center  transform hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(0, 122, 255, 0.5)]">
+    <span className="font-semibold w-full px-5 flex items-center text-xl tracking-tight mb-1">
+      <IoInformation className="w-6 h-6 border-2 rounded-full mx-2" />
+      Click on the Icon
+    </span>
+    <span className="text-sm opacity-90 transition-opacity duration-300">to navigate to the playground</span>
+    <span className="absolute inset-0 rounded-lg border border-gray-800 opacity-10 blur-md" />
+    <span className="absolute inset-0 rounded-lg border border-gray-700 opacity-20 blur-md" />
   </span>
 );
+
 
 
 
@@ -70,9 +77,7 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
 
   return (
     <div className="flex max-w-[45%] cursor-pointer py-4 px-4 min-w-[350px] bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out border border-gray-600">
-      <div className="relative "
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
+      <div className="relative"
       onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <img
           onClick={onClickToNavigate}
@@ -80,10 +85,10 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
           alt={`${title} logo`} 
           className="w-16 h-16 rounded-full border-2 border-gray-600" 
         /> 
-        {isHover && <Info />} {/* Conditional rendering based on isHover */}
       </div>
 
       <div className="flex flex-col text-white items-start justify-center flex-grow ml-4">
+        {isHover && <Info />} {/* Conditional rendering based on isHover */}
         {isEditing ? (
           <input
             className="bg-gray-800 text-white w-2/3 px-3 py-2 rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-400 transition duration-200"
