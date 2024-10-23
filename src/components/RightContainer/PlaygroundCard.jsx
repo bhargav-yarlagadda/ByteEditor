@@ -6,6 +6,7 @@ import { CiSaveDown1 } from "react-icons/ci";
 import { PlaygroundContext } from "../../context/PlaygroundContext";
 import { useNavigate } from "react-router-dom";
 import { IoInformation } from "react-icons/io5";
+import { GrNext } from "react-icons/gr";
 
 const Info = () => (
   <span className="absolute w-[72%] h-full bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-lg border border-gray-700 shadow-lg z-10 text-white text-base transition-transform duration-300 flex flex-col justify-center items-center  transform hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(0, 122, 255, 0.5)]">
@@ -13,14 +14,13 @@ const Info = () => (
       <IoInformation className="w-6 h-6 border-2 rounded-full mx-2" />
       Click on the Icon
     </span>
-    <span className="text-sm opacity-90 transition-opacity duration-300">to navigate to the playground</span>
+    <span className="text-sm opacity-90 transition-opacity duration-300">
+      to navigate to the playground
+    </span>
     <span className="absolute inset-0 rounded-lg border border-gray-800 opacity-10 blur-md" />
     <span className="absolute inset-0 rounded-lg border border-gray-700 opacity-20 blur-md" />
   </span>
 );
-
-
-
 
 export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   const { setFolders, folders } = useContext(PlaygroundContext);
@@ -77,14 +77,17 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
 
   return (
     <div className="flex max-w-[45%] cursor-pointer py-4 px-4 min-w-[350px] bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out border border-gray-600">
-      <div className="relative"
-      onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div
+        className="relative"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <img
           onClick={onClickToNavigate}
-          src={Logo} 
-          alt={`${title} logo`} 
-          className="w-16 h-16 rounded-full border-2 border-gray-600" 
-        /> 
+          src={Logo}
+          alt={`${title} logo`}
+          className="w-16 h-16 rounded-full border-2 border-gray-600"
+        />
       </div>
 
       <div className="flex flex-col text-white items-start justify-center flex-grow ml-4">
@@ -96,19 +99,28 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
           />
+          
         ) : (
           <span className="font-semibold text-lg">{title}</span>
         )}
         <span className="text-sm text-gray-400">Language: {language}</span>
       </div>
-      
+
       <div className="flex gap-4 items-center text-white text-2xl">
         {isEditing ? (
-          <button onClick={onSaveEdit} aria-label="Save Edit" className="hover:text-teal-400 transition duration-200">
-            <CiSaveDown1 />
+          <button
+            onClick={onSaveEdit}
+            aria-label="Save Edit"
+            className="hover:text-teal-400 transition duration-200"
+          >
+            <GrNext />
           </button>
         ) : (
-          <button onClick={() => setIsEditing(true)} aria-label="Edit Playground" className="hover:text-teal-400 transition duration-200">
+          <button
+            onClick={() => setIsEditing(true)}
+            aria-label="Edit Playground"
+            className="hover:text-teal-400 transition duration-200"
+          >
             <CiEdit />
           </button>
         )}
