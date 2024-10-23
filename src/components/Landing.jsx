@@ -31,19 +31,19 @@ const HeaderOfLanding = () => {
 
       {/* Tooltip message */}
       <div 
-        className={`absolute left-1/2 border-2  px-6 border-blue-100 transform -translate-x-1/2 mt-2 bg-blue-700 text-white text-sm p-2 rounded-md z-10 transition-opacity duration-300 ${showMessage ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`absolute left-1/2 border-2  px-12 border-blue-100 transform -translate-x-1/2 mt-2 bg-blue-600 text-white text-sm p-2 rounded-md z-10 transition-opacity duration-300 ${showMessage ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
-        Click on My Playground to return home
+        Click Me  to return home
       </div>
-
       <button
         onClick={() => {
           setModalType('create-folder');
         }}
-        className='flex items-center w-1/4 gap-2 px-4 py-2 hover:bg-blue-600 hover:text-white transition-all ease-in duration-200 bg-white rounded-full shadow-md'
+        className='flex items-center  md:gap-2 justify-center md:justify-start px-1 md:px-4 py-2 hover:bg-blue-600 hover:text-white transition-all ease-in duration-200 bg-white rounded-full shadow-md'
       >
         <FaPlus />
-        <span className='font-semibold'>New folder</span>
+
+        <span className='font-semibold text-xs md:text-sm'>New folder</span>
       </button>
     </div>
   );
@@ -51,7 +51,7 @@ const HeaderOfLanding = () => {
 
 const Landing = () => {
   return (
-    <div className='overflow-scroll bg-gray-900  flex-col justify-between items-center h-screen' style={{ scrollbarWidth: "none" }}>
+    <div className='overflow-scroll bg-gray-900  flex-col items-center h-screen' style={{ scrollbarWidth: "none" }}>
       <HeaderOfLanding />
       <LandingPage />
     </div>

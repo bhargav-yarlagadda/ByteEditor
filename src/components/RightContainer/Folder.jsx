@@ -163,10 +163,10 @@ export const Folder = ({ folder }) => {
           </button>
           <button
             onClick={() => setAddNewGround(true)}
-            className="flex text-sm items-center text-black gap-2 hover:bg-gray-600 bg-gray-400 rounded-md py-1 px-3 transition"
+            className="flex text-sm items-center w-auto text-black gap-2 hover:bg-gray-600 bg-gray-400 rounded-md py-1 px-3 transition"
           >
             <FaPlus />
-            New Playground
+            <span className="hidden md:block" >New Playground</span> 
           </button>
         </div>
       </div>

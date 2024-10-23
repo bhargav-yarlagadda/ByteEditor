@@ -6,8 +6,8 @@ const LandingPage = () => {
   const { folders } = useContext(PlaygroundContext); 
 
   return (
-    <div className="min-h-screen bg-gray-950 p-6">
-      <div className="px-12 mx-auto overflow-auto">
+    <div className="min-h-screen bg-gray-950  md:p-1">
+      <div className="px-3 md:px-12 mx-auto overflow-auto">
         {folders?.map((folder) => (
           <Folder key={folder.id} folder={folder} />
         ))}
