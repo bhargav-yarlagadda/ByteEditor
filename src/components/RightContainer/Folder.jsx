@@ -24,7 +24,7 @@ const EditModal = ({ setIsEditing, folderId, updateFolderName }) => {
   };
 
   return (
-    <div className="w-screen h-screen absolute flex justify-center  items-center inset-0 bg-gray-900 bg-opacity-70 backdrop-blur-md px-4 py-2">
+    <div className="w-screen h-screen z-10 absolute flex justify-center  items-center inset-0 bg-gray-900 bg-opacity-70 backdrop-blur-md px-4 py-2">
       <div className="w-full max-w-lg bg-gray-100 bg-opacity-40 rounded-lg shadow-xl p-6 space-y-4">
         <h2 className="text-xl font-semibold text-gray-800">Edit Folder Name</h2>
         <input
