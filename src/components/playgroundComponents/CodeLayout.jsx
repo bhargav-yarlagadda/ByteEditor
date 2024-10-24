@@ -34,7 +34,7 @@ const CodeLayout = () => {
       <div className="md:col-span-3  ">
         <CodeGround />
       </div>
-      <div className="flex flex-row w-screen lg:w-auto  lg:flex-col ">
+      <div className="flex flex-row w-screen lg:w-auto bg-gray-950 lg:flex-col ">
         <InputSection />
         <OutputSection />
       </div>

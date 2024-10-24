@@ -51,7 +51,7 @@ const CodeGround = () => {
   const fullScreen = `absolute h-[100vh] w-[100vw]  top-0 z-10`
   const defaultScreen = `h-[85%] w-full`
   return (
-    <div className="h-screen w-full">
+    <div className="h-screen w-full max-w-[100vw]">
       <EditorNav />
       <div
         className={`${isFullScreen ? fullScreen:defaultScreen} bg-gray-700 overflow-y-scroll`}

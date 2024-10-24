@@ -115,56 +115,56 @@ const onRunCode = useCallback(() => {
   }
 }, [folders, folderId, fileId, inputCode]); // Add inputCode to dependencies
 
-  return (
-    <div className="w-full relative h-[7.5%] bg-gray-800 bg-opacity-90 flex justify-around items-center px-6 py-2 shadow-lg">
-      <button
-        onClick={() => {
-          setIsFullScreen(true);
-        }}
-        className="flex items-center space-x-2 text-gray-200 hover:text-red-300 rounded-lg py-1 px-2 hover:bg-gray-300 hover:bg-opacity-20 cursor-pointer transition duration-300 ease-in-out"
-      >
-        <MdFullscreen className="text-xl" />
-        <span className="font-semibold">Full Screen</span>
+return (
+  <div className="h-[7.5%] w-full max-w-[100vw] bg-gray-800 bg-opacity-90 flex justify-between items-center px-6 py-2 shadow-lg">
+    
+    {/* Full Screen Button */}
+    <button
+      onClick={() => setIsFullScreen(true)}
+      className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out"
+    >
+      <MdFullscreen className="text-4xl md:text-xl md:mr-2" />
+      <span className="font-semibold">Full Screen</span>
+    </button>
+
+    {/* Import Code Button */}
+    <label
+      htmlFor="import-code"
+      className="relative cursor-pointer"
+      onClick={() => importFileRef.current.click()}
+    >
+      <button className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out">
+        <CiImport className="text-4xl md:text-xl md:mr-2" />
+        <span className="font-medium">Import Code</span>
       </button>
+      <input
+        type="file"
+        ref={importFileRef}
+        accept=".js,.py,.cpp," // Accept only JavaScript, Python, and C++ files
+        onChange={handleImportChange}
+        className="hidden" // Keep hidden
+      />
+    </label>
 
-      {/* Import Code Button */}
-      <label
-        htmlFor="import-code"
-        className="relative cursor-pointer"
-        onClick={() => importFileRef.current.click()}
-      >
-        <button className="flex items-center space-x-2 text-gray-200 hover:text-red-300 rounded-lg py-1 px-2 hover:bg-gray-300 hover:bg-opacity-20 transition duration-300 ease-in-out">
-          <CiImport className="text-xl" />
-          <span className="font-medium">Import Code</span>
-        </button>
-        <input
-          type="file"
-          ref={importFileRef}
-          accept=".js,.py,.cpp," // Accept only JavaScript, Python, and C++ files
-          onChange={handleImportChange}
-          className="hidden" // Keep hidden
-        />
-      </label>
+    {/* Export Code Button */}
+    <button
+      onClick={handleExportChange}
+      className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out"
+    >
+      <CiExport className="text-4xl md:text-xl md:mr-2" />
+      <span className="font-medium">Export Code</span>
+    </button>
 
-      {/* Export Code Button */}
+    {/* Run Code Button */}
+    <button
+      onClick={onRunCode}
+      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md shadow-lg transition duration-300 ease-in-out"
+    >
+      Run <span className="hidden md:inline">code</span>
+    </button>
+  </div>
+);
 
-      <button
-        onClick={handleExportChange}
-        className="flex items-center space-x-2 text-gray-200 hover:text-red-300 rounded-lg py-1 px-2 hover:bg-gray-300 hover:bg-opacity-20 transition duration-300 ease-in-out"
-      >
-        <CiExport className="text-xl" />
-        <span className="font-medium">Export Code</span>
-      </button>
-
-      <div>
-        <button
-        onClick={()=>{onRunCode()}}
-        className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-full shadow-lg transition duration-300 ease-in-out">
-          Run Code
-        </button>
-      </div>
-    </div>
-  );
 };
 
 export default Editorfooter;

@@ -32,9 +32,9 @@ const OutputSection = () => {
         <div className="flex items-center">
           <label 
             onClick={handleExport}
-            className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-1 py-2  rounded-md text-sm text-white flex items-center"
+            className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-1 py-1 md:py-2  rounded-md text-sm text-white flex items-center"
           >
-            <CiExport className="text-xl md:text-2xl mr-2" />
+            <CiExport className="text-md md:text-2xl mr-2" />
             Export Output
           </label>
         </div>

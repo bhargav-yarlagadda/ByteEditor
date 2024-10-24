@@ -29,7 +29,7 @@ return (
       <span className="text-white text-2xl font-semibold">Input:</span>
       <div className="flex items-center gap-2">
         {/* File Input */}
-        <label className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-sm text-white flex items-center">
+        <label className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-3 py-1 md:py-2 rounded-md text-sm text-white flex items-center">
           <CiImport className="text-xl md:text-2xl mr-2" />
           <input
             type="file"
