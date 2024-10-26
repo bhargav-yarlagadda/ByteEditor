@@ -23,13 +23,13 @@ const importInput = (e) => {
 };
 
 return (
-  <div className="h-1/2 min-h-[30vh] w-full mx-1 md:mx-0 bg-gray-900 rounded-md shadow-lg">
+  <div className="h-1/2 min-h-[30vh] w-full  md:mx-0 bg-gray-900 rounded-md shadow-lg">
     {/* Header Section */}
     <div className="flex h-[15%] justify-between items-center px-4 w-full bg-gray-800 border-b border-gray-700">
       <span className="text-white text-2xl font-semibold">Input:</span>
       <div className="flex items-center gap-2">
         {/* File Input */}
-        <label className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-3 py-1 md:py-2 rounded-md text-sm text-white flex items-center">
+        <label className="cursor-pointer bg-gray-700 hover:bg-gray-600 px-3 lg:py-2 rounded-md text-sm text-white flex items-center">
           <CiImport className="text-xl md:text-2xl mr-2" />
           <input
             type="file"

@@ -84,7 +84,7 @@ const EditorNav = () => {
         <select
           id="language"
           name="language"
-          className="border w-[100px] md:w-auto border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border w-[70px] text-sm lg:text-lg md:w-auto border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={selectedLanguage} // Bind selected language to state
           onChange={handleLanguageChange} // Handle language change
           required
@@ -101,7 +101,7 @@ const EditorNav = () => {
         <select
           id="theme"
           name="theme"
-          className="border  w-[100px] md:w-auto border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border  w-[70px] text-sm lg:text-lg md:w-auto border-gray-300 bg-blue-100 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={theme} // Bind selected theme to state
           onChange={handleThemeChange} // Handle theme change
           required
@@ -146,7 +146,7 @@ const EditorNav = () => {
             <div className="flex my-1 w-auto md:gap-3  items-center px-2">
               <span className="text-white text-center text-sm md:text-base ">{currFile?.title}</span>
               <CiEdit
-                className="h-[40px] w-[40px] text-white cursor-pointer hover:text-gray-700 transition duration-200"
+                className="h-[40px] w-[30px] text-white cursor-pointer hover:text-gray-700 transition duration-200"
                 onClick={() => setIsEditing(true)} // Enter editing mode
               />
             </div>

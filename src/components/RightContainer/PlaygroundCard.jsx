@@ -76,7 +76,7 @@ export const PlaygroundCard = ({ folderId, fileId, title, language }) => {
   };
 
   return (
-    <div className="flex max-w-[45%] cursor-pointer py-4 px-4 min-w-[350px] bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out border  border-gray-600">
+    <div className="flex max-w-full  cursor-pointer py-4 px-4 min-w-[320px] bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out border  border-gray-600">
       <div
         className="relative"
         onMouseEnter={handleMouseEnter}

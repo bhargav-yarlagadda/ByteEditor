@@ -124,7 +124,7 @@ return (
       className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out"
     >
       <MdFullscreen className="text-4xl md:text-xl md:mr-2" />
-      <span className="font-semibold">Full Screen</span>
+      <span className="font-semibold hidden sm:inline">Full Screen</span>
     </button>
 
     {/* Import Code Button */}
@@ -135,7 +135,7 @@ return (
     >
       <button className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out">
         <CiImport className="text-4xl md:text-xl md:mr-2" />
-        <span className="font-medium">Import Code</span>
+        <span className="font-medium hidden sm:inline">Import Code</span>
       </button>
       <input
         type="file"
@@ -152,7 +152,7 @@ return (
       className="flex items-center text-gray-200 hover:text-red-300 rounded-lg py-2 px-4 transition duration-300 ease-in-out"
     >
       <CiExport className="text-4xl md:text-xl md:mr-2" />
-      <span className="font-medium">Export Code</span>
+      <span className="font-medium hidden sm:inline">Export Code</span>
     </button>
 
     {/* Run Code Button */}
